@@ -5,13 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maxwel Omondi Okinyo | Software Developer</title>
 
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   <style>
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+
     .hero {
-      background: linear-gradient(rgba(15,23,42,.9), rgba(15,23,42,.9));
+      background: linear-gradient(rgba(15,23,42,.92), rgba(15,23,42,.92));
+    }
+
+    /* Ensure icons are visible */
+    .devicon, .devicon-plain, .devicon-original {
+      filter: brightness(1.2);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      color: #2563eb; /* blue-600 */
+    }
+
+    .skill-card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .dark .skill-card {
+      background: #1e293b;
     }
   </style>
 </head>
@@ -105,50 +141,50 @@
 <section id="skills" class="bg-gray-100 dark:bg-slate-800 py-20">
   <h2 class="text-3xl font-bold text-center mb-14">Technical Skills</h2>
 
-  <div class="container mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 text-center text-sm">
+  <div class="container mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center text-sm">
 
     <!-- Programming -->
-    <div><i class="devicon-java-plain colored text-3xl"></i><p>Java</p></div>
-    <div><i class="devicon-kotlin-plain colored text-3xl"></i><p>Kotlin</p></div>
-    <div><i class="devicon-javascript-plain colored text-3xl"></i><p>JavaScript</p></div>
-    <div><i class="devicon-typescript-plain colored text-3xl"></i><p>TypeScript</p></div>
-    <div><i class="devicon-python-plain colored text-3xl"></i><p>Python</p></div>
-    <div><i class="devicon-php-plain colored text-3xl"></i><p>PHP</p></div>
-    <div><i class="devicon-csharp-plain colored text-3xl"></i><p>C# (.NET)</p></div>
+    <div class="skill-card"><i class="devicon-java-plain skill-icon"></i><p>Java</p></div>
+    <div class="skill-card"><i class="devicon-kotlin-plain skill-icon"></i><p>Kotlin</p></div>
+    <div class="skill-card"><i class="devicon-javascript-plain skill-icon"></i><p>JavaScript</p></div>
+    <div class="skill-card"><i class="devicon-typescript-plain skill-icon"></i><p>TypeScript</p></div>
+    <div class="skill-card"><i class="devicon-python-plain skill-icon"></i><p>Python</p></div>
+    <div class="skill-card"><i class="devicon-php-plain skill-icon"></i><p>PHP</p></div>
+    <div class="skill-card"><i class="devicon-csharp-plain skill-icon"></i><p>C# (.NET)</p></div>
 
     <!-- Frameworks -->
-    <div><i class="devicon-react-original colored text-3xl"></i><p>React</p></div>
-    <div><i class="devicon-angularjs-plain colored text-3xl"></i><p>Angular</p></div>
-    <div><i class="devicon-nodejs-plain colored text-3xl"></i><p>Node.js</p></div>
-    <div><i class="devicon-express-original colored text-3xl"></i><p>Express</p></div>
-    <div><i class="devicon-django-plain colored text-3xl"></i><p>Django</p></div>
-    <div><i class="devicon-flask-original colored text-3xl"></i><p>Flask</p></div>
-    <div><i class="devicon-laravel-plain colored text-3xl"></i><p>Laravel</p></div>
+    <div class="skill-card"><i class="devicon-react-original skill-icon"></i><p>React</p></div>
+    <div class="skill-card"><i class="devicon-angularjs-plain skill-icon"></i><p>Angular</p></div>
+    <div class="skill-card"><i class="devicon-nodejs-plain skill-icon"></i><p>Node.js</p></div>
+    <div class="skill-card"><i class="devicon-express-original skill-icon"></i><p>Express</p></div>
+    <div class="skill-card"><i class="devicon-django-plain skill-icon"></i><p>Django</p></div>
+    <div class="skill-card"><i class="devicon-flask-original skill-icon"></i><p>Flask</p></div>
+    <div class="skill-card"><i class="devicon-laravel-plain skill-icon"></i><p>Laravel</p></div>
 
     <!-- Mobile -->
-    <div><i class="devicon-android-plain colored text-3xl"></i><p>Android</p></div>
-    <div><i class="devicon-react-original colored text-3xl"></i><p>React Native</p></div>
-    <div><i class="devicon-firebase-plain colored text-3xl"></i><p>Firebase</p></div>
+    <div class="skill-card"><i class="devicon-android-plain skill-icon"></i><p>Android</p></div>
+    <div class="skill-card"><i class="devicon-react-original skill-icon"></i><p>React Native</p></div>
+    <div class="skill-card"><i class="devicon-firebase-plain skill-icon"></i><p>Firebase</p></div>
 
     <!-- Databases -->
-    <div><i class="devicon-mysql-plain colored text-3xl"></i><p>MySQL</p></div>
-    <div><i class="devicon-postgresql-plain colored text-3xl"></i><p>PostgreSQL</p></div>
-    <div><i class="devicon-mongodb-plain colored text-3xl"></i><p>MongoDB</p></div>
-    <div><i class="devicon-microsoftsqlserver-plain colored text-3xl"></i><p>SQL Server</p></div>
+    <div class="skill-card"><i class="devicon-mysql-plain skill-icon"></i><p>MySQL</p></div>
+    <div class="skill-card"><i class="devicon-postgresql-plain skill-icon"></i><p>PostgreSQL</p></div>
+    <div class="skill-card"><i class="devicon-mongodb-plain skill-icon"></i><p>MongoDB</p></div>
+    <div class="skill-card"><i class="devicon-microsoftsqlserver-plain skill-icon"></i><p>SQL Server</p></div>
 
     <!-- DevOps -->
-    <div><i class="devicon-docker-plain colored text-3xl"></i><p>Docker</p></div>
-    <div><i class="devicon-kubernetes-plain colored text-3xl"></i><p>Kubernetes</p></div>
-    <div><i class="devicon-amazonwebservices-plain colored text-3xl"></i><p>AWS</p></div>
-    <div><i class="devicon-linux-plain colored text-3xl"></i><p>Linux</p></div>
-    <div><i class="fas fa-server text-blue-500 text-3xl"></i><p>Nginx</p></div>
+    <div class="skill-card"><i class="devicon-docker-plain skill-icon"></i><p>Docker</p></div>
+    <div class="skill-card"><i class="devicon-kubernetes-plain skill-icon"></i><p>Kubernetes</p></div>
+    <div class="skill-card"><i class="devicon-amazonwebservices-plain skill-icon"></i><p>AWS</p></div>
+    <div class="skill-card"><i class="devicon-linux-plain skill-icon"></i><p>Linux</p></div>
+    <div class="skill-card"><i class="fas fa-server skill-icon"></i><p>Nginx</p></div>
 
     <!-- Tools & Integrations -->
-    <div><i class="devicon-git-plain colored text-3xl"></i><p>Git</p></div>
-    <div><i class="devicon-github-original colored text-3xl"></i><p>GitHub</p></div>
-    <div><i class="devicon-postman-plain colored text-3xl"></i><p>Postman</p></div>
-    <div><i class="fas fa-plug text-blue-500 text-3xl"></i><p>REST / GraphQL</p></div>
-    <div><i class="fas fa-lock text-blue-500 text-3xl"></i><p>OAuth2</p></div>
+    <div class="skill-card"><i class="devicon-git-plain skill-icon"></i><p>Git</p></div>
+    <div class="skill-card"><i class="devicon-github-original skill-icon"></i><p>GitHub</p></div>
+    <div class="skill-card"><i class="devicon-postman-plain skill-icon"></i><p>Postman</p></div>
+    <div class="skill-card"><i class="fas fa-plug skill-icon"></i><p>REST / GraphQL</p></div>
+    <div class="skill-card"><i class="fas fa-lock skill-icon"></i><p>OAuth2</p></div>
 
   </div>
 </section>
