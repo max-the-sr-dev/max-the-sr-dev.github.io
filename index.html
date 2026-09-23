@@ -1,226 +1,973 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maxwel Omondi Okinyo | Software Developer</title>
 
-  <!-- Tailwind -->
+  <title>Maxwel Omondi Okinyo | Software Engineer</title>
+  <meta
+    name="description"
+    content="Maxwel Omondi Okinyo — Software Engineer specializing in backend development, full-stack engineering, DevOps, and scalable software solutions."
+  />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  />
 
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-
-    .hero {
-      background: linear-gradient(rgba(15,23,42,.92), rgba(15,23,42,.92));
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
 
-    /* Ensure icons are visible */
-    .devicon, .devicon-plain, .devicon-original {
-      filter: brightness(1.2);
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.18), transparent 30%),
+        linear-gradient(135deg, #0f172a 0%, #111827 60%, #172554 100%);
     }
 
     .skill-icon {
       font-size: 2rem;
-      color: #2563eb; /* blue-600 */
+      color: #2563eb;
     }
 
     .skill-card {
-      background: white;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: all 0.2s ease;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.85rem;
+      padding: 1.15rem 0.75rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .skill-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.09);
     }
 
-    .dark .skill-card {
-      background: #1e293b;
+    /* Experience roadmap */
+    .roadmap {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Central roadmap line */
+    .roadmap::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 50%;
+      width: 4px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: linear-gradient(
+        to bottom,
+        #2563eb 0%,
+        #60a5fa 50%,
+        #cbd5e1 100%
+      );
+    }
+
+    .roadmap-item {
+      position: relative;
+      width: 50%;
+      padding: 0 42px 48px;
+    }
+
+    .roadmap-item.left {
+      margin-right: auto;
+      text-align: right;
+    }
+
+    .roadmap-item.right {
+      margin-left: 50%;
+      text-align: left;
+    }
+
+    /* Roadmap stop */
+    .roadmap-stop {
+      position: absolute;
+      top: 22px;
+      width: 24px;
+      height: 24px;
+      border: 5px solid #dbeafe;
+      border-radius: 50%;
+      background: #2563eb;
+      box-shadow: 0 0 0 4px #fff;
+      z-index: 2;
+    }
+
+    .roadmap-item.left .roadmap-stop {
+      right: -12px;
+    }
+
+    .roadmap-item.right .roadmap-stop {
+      left: -12px;
+    }
+
+    .roadmap-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.09);
+    }
+
+    .roadmap-item.left .roadmap-card::after,
+    .roadmap-item.right .roadmap-card::after {
+      content: "";
+      position: absolute;
+      top: 28px;
+      width: 42px;
+      height: 2px;
+      background: #93c5fd;
+    }
+
+    .roadmap-item.left .roadmap-card::after {
+      right: -42px;
+    }
+
+    .roadmap-item.right .roadmap-card::after {
+      left: -42px;
+    }
+
+    .roadmap-date {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .roadmap-item.current .roadmap-stop {
+      background: #16a34a;
+      border-color: #dcfce7;
+    }
+
+    .roadmap-item.current .roadmap-date {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .project-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.09);
+    }
+
+    @media (max-width: 767px) {
+      .roadmap {
+        padding-left: 34px;
+      }
+
+      .roadmap::before {
+        left: 10px;
+        transform: none;
+      }
+
+      .roadmap-item,
+      .roadmap-item.left,
+      .roadmap-item.right {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 0 32px 20px;
+        text-align: left;
+      }
+
+      .roadmap-item.left .roadmap-stop,
+      .roadmap-item.right .roadmap-stop {
+        left: -34px;
+        right: auto;
+      }
+
+      .roadmap-item.left .roadmap-card::after,
+      .roadmap-item.right .roadmap-card::after {
+        left: -20px;
+        right: auto;
+        width: 20px;
+      }
+
+      .roadmap-card {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
 
-<!-- NAV -->
-<nav class="fixed w-full z-50 bg-white shadow">
-  <div class="container mx-auto flex justify-between items-center px-6 py-3">
-    <span class="font-bold">Maxwel Omondi Okinyo</span>
-    <ul class="hidden md:flex space-x-6 text-sm font-medium">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  <!-- NAVIGATION -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur shadow-sm">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <a href="#about" class="font-bold text-lg tracking-tight">
+        Maxwel <span class="text-blue-600">Okinyo</span>
+      </a>
 
-<!-- HERO -->
-<section id="about" class="hero min-h-screen flex items-center text-white">
-  <div class="container mx-auto px-6 max-w-4xl">
-    <h1 class="text-5xl font-bold">Maxwel Omondi Okinyo</h1>
-    <p class="text-blue-400 mt-2 text-lg">Full-Stack Software Developer</p>
+      <ul class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
+        <li><a href="#about" class="hover:text-blue-600">About</a></li>
+        <li><a href="#experience" class="hover:text-blue-600">Experience</a></li>
+        <li><a href="#expertise" class="hover:text-blue-600">Expertise</a></li>
+        <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
+        <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
+        <li><a href="#education" class="hover:text-blue-600">Education</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
 
-    <p class="mt-6 leading-relaxed text-gray-300">
-      Results-driven Software Developer with 3+ years of experience building scalable mobile, web, and backend systems.
-      Specialized in React Native, API integrations, and enterprise software delivery. Experienced across the full
-      development lifecycle including system design, development, testing, and DevOps.
+      <a
+        href="mailto:maxwell6225@gmail.com"
+        class="hidden sm:inline-flex bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg"
+      >
+        Get in touch
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO / ABOUT -->
+  <section id="about" class="hero min-h-screen flex items-center text-white pt-24">
+    <div class="container mx-auto px-6 max-w-6xl py-20">
+      <div class="max-w-4xl">
+
+        <p class="text-blue-400 uppercase tracking-widest text-sm font-bold mb-4">
+          Software Engineer | Full-Stack & DevOps
+        </p>
+
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight">
+          Maxwel Omondi
+          <span class="text-blue-400">Okinyo</span>
+        </h1>
+
+        <p class="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
+          Software Engineer with 3+ years of experience building, testing, and
+          deploying secure, scalable backend and full-stack applications.
+          Strong in Node.js, Python, REST APIs, PostgreSQL, Docker, and CI/CD,
+          with hands-on experience in server-side development, database
+          management, and system integrations.
+        </p>
+
+        <p class="mt-4 text-gray-400 leading-relaxed max-w-3xl">
+          Experienced in fintech, payment workflows, and production systems,
+          with a focus on API security, data integrity, performance, and
+          reliability. Committed to continuous learning and delivering
+          reliable software solutions that meet business needs.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="#experience"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg"
+          >
+            Explore My Journey
+          </a>
+
+          <a
+            href="#projects"
+            class="border border-gray-500 hover:border-white text-white font-semibold px-6 py-3 rounded-lg"
+          >
+            View Projects
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-5 text-gray-300">
+          <a
+            href="mailto:maxwell6225@gmail.com"
+            aria-label="Email"
+            class="hover:text-blue-400 text-xl"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+
+          <a
+            href="tel:+254703536959"
+            aria-label="Phone"
+            class="hover:text-blue-400 text-xl"
+          >
+            <i class="fas fa-phone"></i>
+          </a>
+
+          <a
+            href="https://github.com/max-the-sr-dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="hover:text-blue-400 text-xl"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://max-the-sr-dev.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-blue-400 text-xl"
+            aria-label="Portfolio"
+          >
+            <i class="fas fa-globe"></i>
+          </a>
+
+          <span class="text-sm text-gray-400">
+            <i class="fas fa-map-marker-alt mr-1"></i>
+            Nairobi, Kenya
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE ROADMAP -->
+  <section id="experience" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6">
+
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-bold">
+          Career Journey
+        </p>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-3">
+          My Professional Roadmap
+        </h2>
+
+        <p class="text-gray-600 mt-4 leading-relaxed">
+          A journey from ICT support to full-stack software engineering,
+          backend development, and DevOps—building practical experience
+          across support, development, and production systems.
+        </p>
+      </div>
+
+      <div class="roadmap">
+
+        <!-- STOP 1: TRUEHOST -->
+        <div class="roadmap-item right current">
+          <span class="roadmap-stop"></span>
+
+          <article class="roadmap-card">
+            <span class="roadmap-date">
+              Nov 2025 – Present
+            </span>
+
+            <h3 class="text-xl font-bold mt-4">
+              Software Engineer
+            </h3>
+
+            <p class="text-blue-600 font-semibold mt-1">
+              Truehost
+            </p>
+
+            <p class="text-sm text-gray-500 mt-3 leading-relaxed">
+              Engineering and deploying production-ready software across
+              web, backend, and enterprise systems.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Develop and maintain full-stack applications, APIs, and
+                business-critical systems.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Build and improve domain, hosting, ordering, cart, and
+                technology provisioning workflows.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Support CI/CD, Docker, Kubernetes, Linux, and cloud
+                deployment workflows.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Troubleshoot production issues and improve application
+                reliability, integrations, and delivery.
+              </li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Backend</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">APIs</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Docker</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">CI/CD</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- STOP 2: ONFON -->
+        <div class="roadmap-item left">
+          <span class="roadmap-stop"></span>
+
+          <article class="roadmap-card">
+            <span class="roadmap-date">
+              Dec 2024 – Dec 2025
+            </span>
+
+            <h3 class="text-xl font-bold mt-4">
+              Junior System Support
+            </h3>
+
+            <p class="text-blue-600 font-semibold mt-1">
+              Onfon Media
+            </p>
+
+            <p class="text-sm text-gray-500 mt-3 leading-relaxed">
+              Supported application and system reliability while gaining
+              hands-on exposure to development and operational workflows.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Troubleshot application, server, database, and
+                infrastructure issues.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Assisted with system configuration, testing,
+                deployments, and production support.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Developed a stronger foundation in Linux, system
+                reliability, and DevOps practices.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Identified recurring technical issues and supported
+                improvements to system workflows.
+              </li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">System Support</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Troubleshooting</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Linux</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">DevOps</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- STOP 3: ICT AUTHORITY -->
+        <div class="roadmap-item right">
+          <span class="roadmap-stop"></span>
+
+          <article class="roadmap-card">
+            <span class="roadmap-date">
+              Dec 2023 – Nov 2024
+            </span>
+
+            <h3 class="text-xl font-bold mt-4">
+              Full-Stack Software Developer Intern
+            </h3>
+
+            <p class="text-blue-600 font-semibold mt-1">
+              ICT Authority of Kenya
+            </p>
+
+            <p class="text-sm text-gray-500 mt-3 leading-relaxed">
+              Contributed to the development and improvement of
+              applications supporting institutional and public-sector needs.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Developed application features using PHP, Python,
+                JavaScript, and database technologies.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Contributed to the ICTA Commercialization Portal,
+                Jikonnect Soko, and ICTA Pensions Portal.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Worked on backend logic, database functionality,
+                integrations, testing, and debugging.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Collaborated through the software development lifecycle
+                to deliver and improve application features.
+              </li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Python</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">PHP</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">JavaScript</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">REST APIs</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- STOP 4: MINISTRY OF EDUCATION -->
+        <div class="roadmap-item left">
+          <span class="roadmap-stop"></span>
+
+          <article class="roadmap-card">
+            <span class="roadmap-date">
+              Feb 2023 – Dec 2023
+            </span>
+
+            <h3 class="text-xl font-bold mt-4">
+              ICT Support Intern
+            </h3>
+
+            <p class="text-blue-600 font-semibold mt-1">
+              Ministry of Education — Digital Literacy Program
+            </p>
+
+            <p class="text-sm text-gray-500 mt-3 leading-relaxed">
+              Built a foundation in ICT operations, technical support,
+              troubleshooting, and digital infrastructure.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Supported users with hardware, software,
+                connectivity, and system issues.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Assisted with system maintenance, software installation,
+                and technical configuration.
+              </li>
+              <li>
+                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                Supported data collection, reporting, user guidance,
+                and digital learning environments.
+              </li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">ICT Support</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">Troubleshooting</span>
+              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">IT Operations</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE ENGINEERING EXPERTISE -->
+  <section id="expertise" class="py-20 bg-white">
+    <div class="container mx-auto px-6 max-w-6xl">
+
+      <div class="text-center mb-12">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-bold">
+          What I Do
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-3">
+          Core Engineering Expertise
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="p-6 rounded-xl border border-gray-200 bg-gray-50">
+          <i class="fas fa-code text-2xl text-blue-600"></i>
+          <h3 class="font-bold text-lg mt-4">Backend & Full-Stack Engineering</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Building web, mobile, and backend applications from requirements
+            and development through testing and deployment.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-gray-200 bg-gray-50">
+          <i class="fas fa-plug text-2xl text-blue-600"></i>
+          <h3 class="font-bold text-lg mt-4">API Development & Integration</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Developing REST APIs and connecting applications with
+            databases, payment services, and third-party platforms.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-gray-200 bg-gray-50">
+          <i class="fas fa-cloud text-2xl text-blue-600"></i>
+          <h3 class="font-bold text-lg mt-4">DevOps & Continuous Delivery</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Supporting CI/CD, Docker, Kubernetes, Linux, cloud
+            deployments, and production environments.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-gray-200 bg-gray-50">
+          <i class="fas fa-database text-2xl text-blue-600"></i>
+          <h3 class="font-bold text-lg mt-4">Database & Systems Engineering</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Working with relational and NoSQL databases, application
+            data flows, system integration, and performance improvements.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-gray-200 bg-gray-50">
+          <i class="fas fa-shield-alt text-2xl text-blue-600"></i>
+          <h3 class="font-bold text-lg mt-4">Quality & Reliability</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Applying testing, debugging, secure development practices,
+            and production troubleshooting to improve software quality.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-gray-200 bg-gray-50">
+          <i class="fas fa-building text-2xl text-blue-600"></i>
+          <h3 class="font-bold text-lg mt-4">Enterprise & Fintech Solutions</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Developing business systems, financial workflows, and
+            technology solutions that support operational needs.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SKILLS -->
+  <section id="skills" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6 max-w-7xl">
+
+      <div class="text-center mb-12">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-bold">
+          Technologies & Tools
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-3">
+          Technical Skills
+        </h2>
+        <p class="text-gray-600 mt-4">
+          Technologies and tools applied across software development,
+          system integration, and deployment.
+        </p>
+      </div>
+
+      <!-- Languages & Frameworks -->
+      <div class="mb-10">
+        <h3 class="text-lg font-bold mb-4">Languages & Frameworks</h3>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm">
+
+          <div class="skill-card"><i class="devicon-python-plain skill-icon"></i><p class="mt-2">Python</p></div>
+          <div class="skill-card"><i class="devicon-javascript-plain skill-icon"></i><p class="mt-2">JavaScript</p></div>
+          <div class="skill-card"><i class="devicon-nodejs-plain skill-icon"></i><p class="mt-2">Node.js</p></div>
+          <div class="skill-card"><i class="devicon-java-plain skill-icon"></i><p class="mt-2">Java</p></div>
+          <div class="skill-card"><i class="devicon-kotlin-plain skill-icon"></i><p class="mt-2">Kotlin</p></div>
+          <div class="skill-card"><i class="devicon-php-plain skill-icon"></i><p class="mt-2">PHP</p></div>
+          <div class="skill-card"><i class="devicon-django-plain skill-icon"></i><p class="mt-2">Django</p></div>
+          <div class="skill-card"><i class="devicon-flask-original skill-icon"></i><p class="mt-2">Flask</p></div>
+          <div class="skill-card"><i class="devicon-spring-plain skill-icon"></i><p class="mt-2">Spring Boot</p></div>
+          <div class="skill-card"><i class="devicon-laravel-plain skill-icon"></i><p class="mt-2">Laravel</p></div>
+          <div class="skill-card"><i class="devicon-react-original skill-icon"></i><p class="mt-2">React Native</p></div>
+          <div class="skill-card"><i class="devicon-csharp-plain skill-icon"></i><p class="mt-2">C# / .NET</p></div>
+
+        </div>
+      </div>
+
+      <!-- Databases -->
+      <div class="mb-10">
+        <h3 class="text-lg font-bold mb-4">Databases</h3>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm">
+
+          <div class="skill-card"><i class="devicon-postgresql-plain skill-icon"></i><p class="mt-2">PostgreSQL</p></div>
+          <div class="skill-card"><i class="devicon-mysql-plain skill-icon"></i><p class="mt-2">MySQL</p></div>
+          <div class="skill-card"><i class="devicon-mariadb-plain skill-icon"></i><p class="mt-2">MariaDB</p></div>
+          <div class="skill-card"><i class="devicon-mongodb-plain skill-icon"></i><p class="mt-2">MongoDB</p></div>
+          <div class="skill-card"><i class="devicon-amazonwebservices-plain skill-icon"></i><p class="mt-2">DynamoDB</p></div>
+          <div class="skill-card"><i class="fas fa-database skill-icon"></i><p class="mt-2">SQL Server</p></div>
+
+        </div>
+      </div>
+
+      <!-- DevOps -->
+      <div class="mb-10">
+        <h3 class="text-lg font-bold mb-4">DevOps & Infrastructure</h3>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm">
+
+          <div class="skill-card"><i class="devicon-docker-plain skill-icon"></i><p class="mt-2">Docker</p></div>
+          <div class="skill-card"><i class="devicon-kubernetes-plain skill-icon"></i><p class="mt-2">Kubernetes</p></div>
+          <div class="skill-card"><i class="devicon-linux-plain skill-icon"></i><p class="mt-2">Linux</p></div>
+          <div class="skill-card"><i class="devicon-nginx-original skill-icon"></i><p class="mt-2">Nginx</p></div>
+          <div class="skill-card"><i class="devicon-githubactions-plain skill-icon"></i><p class="mt-2">GitHub Actions</p></div>
+          <div class="skill-card"><i class="devicon-amazonwebservices-plain skill-icon"></i><p class="mt-2">Cloud / AWS</p></div>
+
+        </div>
+      </div>
+
+      <!-- Tools & Engineering -->
+      <div>
+        <h3 class="text-lg font-bold mb-4">Tools & Engineering Practices</h3>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm">
+
+          <div class="skill-card"><i class="devicon-git-plain skill-icon"></i><p class="mt-2">Git</p></div>
+          <div class="skill-card"><i class="devicon-github-original skill-icon"></i><p class="mt-2">GitHub</p></div>
+          <div class="skill-card"><i class="devicon-postman-plain skill-icon"></i><p class="mt-2">Postman</p></div>
+          <div class="skill-card"><i class="fas fa-plug skill-icon"></i><p class="mt-2">REST / GraphQL</p></div>
+          <div class="skill-card"><i class="fas fa-lock skill-icon"></i><p class="mt-2">OAuth2</p></div>
+          <div class="skill-card"><i class="fas fa-vial skill-icon"></i><p class="mt-2">Software Testing</p></div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="container mx-auto px-6 max-w-6xl">
+
+      <div class="text-center mb-12">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-bold">
+          Selected Work
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-3">
+          Featured Projects
+        </h2>
+        <p class="text-gray-600 mt-4">
+          Practical software solutions demonstrating backend development,
+          integrations, and business-focused application engineering.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- SaccoApp -->
+        <article class="project-card bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+              <i class="fas fa-wallet text-blue-600 text-xl"></i>
+            </div>
+            <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+              Fintech
+            </span>
+          </div>
+
+          <h3 class="text-xl font-bold mt-5">SaccoApp</h3>
+
+          <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+            A SACCO and chama management platform built with React Native,
+            Django, and PostgreSQL. Supports member management, savings,
+            loans, payments, and financial reporting.
+          </p>
+
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            <li><i class="fas fa-check text-blue-500 mr-2"></i>Implemented backend APIs and financial workflows.</li>
+            <li><i class="fas fa-check text-blue-500 mr-2"></i>Integrated payment processes and transaction tracking.</li>
+            <li><i class="fas fa-check text-blue-500 mr-2"></i>Supports over KES 4 million in cumulative transactions.</li>
+            <li><i class="fas fa-check text-blue-500 mr-2"></i>Improves access to funds, financial visibility, and accountability.</li>
+          </ul>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="text-xs bg-gray-100 px-2 py-1 rounded">React Native</span>
+            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Django</span>
+            <span class="text-xs bg-gray-100 px-2 py-1 rounded">PostgreSQL</span>
+            <span class="text-xs bg-gray-100 px-2 py-1 rounded">REST APIs</span>
+          </div>
+        </article>
+
+        <!-- SQLD -->
+        <article class="project-card bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center">
+              <i class="fas fa-landmark text-indigo-600 text-xl"></i>
+            </div>
+            <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full">
+              Banking
+            </span>
+          </div>
+
+          <h3 class="text-xl font-bold mt-5">SQLD Banking System</h3>
+
+          <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+            A banking-focused software project centered on financial
+            workflows, backend functionality, and structured data
+            management.
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Backend Development</span>
+            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Database Systems</span>
+            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Financial Workflows</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="https://github.com/max-the-sr-dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold"
+        >
+          <i class="fab fa-github"></i>
+          Explore more on GitHub
+          <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6 max-w-4xl">
+
+      <div class="text-center mb-10">
+        <p class="text-blue-600 uppercase tracking-widest text-sm font-bold">
+          Academic Background
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-3">
+          Education
+        </h2>
+      </div>
+
+      <div class="space-y-5">
+
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="flex gap-4">
+            <div class="w-12 h-12 shrink-0 rounded-lg bg-blue-100 flex items-center justify-center">
+              <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-lg">
+                Bachelor of Business Information Technology (BBIT)
+              </h3>
+              <p class="text-blue-600 font-medium mt-1">
+                Meru University of Science and Technology
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                May 2022 · Second Class Honours (Upper Division)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="flex gap-4">
+            <div class="w-12 h-12 shrink-0 rounded-lg bg-blue-100 flex items-center justify-center">
+              <i class="fas fa-school text-blue-600 text-xl"></i>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-lg">Kenya Certificate of Secondary Education (KCSE)</h3>
+              <p class="text-blue-600 font-medium mt-1">Chianda High School</p>
+              <p class="text-sm text-gray-500 mt-2">Dec 2016</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-slate-900 text-white">
+    <div class="container mx-auto px-6 max-w-4xl text-center">
+
+      <p class="text-blue-400 uppercase tracking-widest text-sm font-bold">
+        Let's Connect
+      </p>
+
+      <h2 class="text-3xl md:text-4xl font-extrabold mt-3">
+        Let's Build Something Meaningful
+      </h2>
+
+      <p class="text-gray-300 mt-4 leading-relaxed max-w-2xl mx-auto">
+        I’m open to opportunities where I can contribute my software
+        engineering, backend development, and DevOps skills while
+        continuing to grow as an engineer.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="mailto:maxwell6225@gmail.com"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg"
+        >
+          <i class="fas fa-envelope mr-2"></i>
+          Email Me
+        </a>
+
+        <a
+          href="https://github.com/max-the-sr-dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-gray-600 hover:border-white text-white font-semibold px-6 py-3 rounded-lg"
+        >
+          <i class="fab fa-github mr-2"></i>
+          GitHub Profile
+        </a>
+      </div>
+
+      <div class="mt-8 text-sm text-gray-400 space-y-2">
+        <p>Nairobi, Kenya</p>
+        <p>+254 703 536 959</p>
+        <p>maxwell6225@gmail.com</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-gray-500 text-center text-sm py-5">
+    <p>
+      &copy; <span id="year"></span> Maxwel Omondi Okinyo.
+      Built with purpose.
     </p>
+  </footer>
 
-    <div class="mt-6 space-x-4">
-      <a href="mailto:maxwell6225@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:+254703536959"><i class="fas fa-phone"></i></a>
-      <a href="https://github.com/max-the-sr-dev" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="container mx-auto px-6 py-16">
-  <h2 class="text-3xl font-bold mb-10 text-center">Experience</h2>
-
-  <div class="space-y-8">
-
-    <div>
-      <h3 class="font-semibold">Fullstack Android & Software Developer - Cloudoon / Truehost</h3>
-      <p class="text-sm text-gray-500">Nov 2025 – Present</p>
-      <ul class="list-disc ml-6 mt-2 text-sm">
-        <li>Develop scalable web and mobile applications</li>
-        <li>Build CI/CD pipelines and automate deployments</li>
-        <li>Implement Docker and Kubernetes environments</li>
-        <li>Develop secure APIs and integrations</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="font-semibold">Software Developer & System Support - Onfon Mobile</h3>
-      <p class="text-sm text-gray-500">Dec 2024 – Dec 2025</p>
-      <ul class="list-disc ml-6 mt-2 text-sm">
-        <li>Translated requirements into system designs</li>
-        <li>Integrated OAuth2 APIs and payment systems</li>
-        <li>Improved system workflows and performance</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="font-semibold">Software Developer - Codestar Softwares</h3>
-      <p class="text-sm text-gray-500">Dec 2024 – Present</p>
-      <ul class="list-disc ml-6 mt-2 text-sm">
-        <li>Built SaccoApp (SACCO management system)</li>
-        <li>Developed SQLD Banking System</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="font-semibold">Software Developer Intern - ICT Authority</h3>
-      <p class="text-sm text-gray-500">Dec 2023 – Nov 2024</p>
-      <ul class="list-disc ml-6 mt-2 text-sm">
-        <li>Built national platforms and APIs</li>
-        <li>Worked with Java, Python, and PHP</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="bg-gray-100 dark:bg-slate-800 py-20">
-  <h2 class="text-3xl font-bold text-center mb-14">Technical Skills</h2>
-
-  <div class="container mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center text-sm">
-
-    <!-- Programming -->
-    <div class="skill-card"><i class="devicon-java-plain skill-icon"></i><p>Java</p></div>
-    <div class="skill-card"><i class="devicon-kotlin-plain skill-icon"></i><p>Kotlin</p></div>
-    <div class="skill-card"><i class="devicon-javascript-plain skill-icon"></i><p>JavaScript</p></div>
-    <div class="skill-card"><i class="devicon-typescript-plain skill-icon"></i><p>TypeScript</p></div>
-    <div class="skill-card"><i class="devicon-python-plain skill-icon"></i><p>Python</p></div>
-    <div class="skill-card"><i class="devicon-php-plain skill-icon"></i><p>PHP</p></div>
-    <div class="skill-card"><i class="devicon-csharp-plain skill-icon"></i><p>C# (.NET)</p></div>
-
-    <!-- Frameworks -->
-    <div class="skill-card"><i class="devicon-react-original skill-icon"></i><p>React</p></div>
-    <div class="skill-card"><i class="devicon-angularjs-plain skill-icon"></i><p>Angular</p></div>
-    <div class="skill-card"><i class="devicon-nodejs-plain skill-icon"></i><p>Node.js</p></div>
-    <div class="skill-card"><i class="devicon-express-original skill-icon"></i><p>Express</p></div>
-    <div class="skill-card"><i class="devicon-django-plain skill-icon"></i><p>Django</p></div>
-    <div class="skill-card"><i class="devicon-flask-original skill-icon"></i><p>Flask</p></div>
-    <div class="skill-card"><i class="devicon-laravel-plain skill-icon"></i><p>Laravel</p></div>
-
-    <!-- Mobile -->
-    <div class="skill-card"><i class="devicon-android-plain skill-icon"></i><p>Android</p></div>
-    <div class="skill-card"><i class="devicon-react-original skill-icon"></i><p>React Native</p></div>
-    <div class="skill-card"><i class="devicon-firebase-plain skill-icon"></i><p>Firebase</p></div>
-
-    <!-- Databases -->
-    <div class="skill-card"><i class="devicon-mysql-plain skill-icon"></i><p>MySQL</p></div>
-    <div class="skill-card"><i class="devicon-postgresql-plain skill-icon"></i><p>PostgreSQL</p></div>
-    <div class="skill-card"><i class="devicon-mongodb-plain skill-icon"></i><p>MongoDB</p></div>
-    <div class="skill-card"><i class="devicon-microsoftsqlserver-plain skill-icon"></i><p>SQL Server</p></div>
-
-    <!-- DevOps -->
-    <div class="skill-card"><i class="devicon-docker-plain skill-icon"></i><p>Docker</p></div>
-    <div class="skill-card"><i class="devicon-kubernetes-plain skill-icon"></i><p>Kubernetes</p></div>
-    <div class="skill-card"><i class="devicon-amazonwebservices-plain skill-icon"></i><p>AWS</p></div>
-    <div class="skill-card"><i class="devicon-linux-plain skill-icon"></i><p>Linux</p></div>
-    <div class="skill-card"><i class="fas fa-server skill-icon"></i><p>Nginx</p></div>
-
-    <!-- Tools & Integrations -->
-    <div class="skill-card"><i class="devicon-git-plain skill-icon"></i><p>Git</p></div>
-    <div class="skill-card"><i class="devicon-github-original skill-icon"></i><p>GitHub</p></div>
-    <div class="skill-card"><i class="devicon-postman-plain skill-icon"></i><p>Postman</p></div>
-    <div class="skill-card"><i class="fas fa-plug skill-icon"></i><p>REST / GraphQL</p></div>
-    <div class="skill-card"><i class="fas fa-lock skill-icon"></i><p>OAuth2</p></div>
-
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="container mx-auto px-6 py-16">
-  <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
-
-  <div class="grid md:grid-cols-2 gap-6">
-
-    <div class="p-4 bg-white shadow rounded">
-      <h3 class="font-semibold">SaccoApp</h3>
-      <p class="text-sm text-gray-500">Fintech SACCO & chama management system built with React Native & Django.</p>
-    </div>
-
-    <div class="p-4 bg-white shadow rounded">
-      <h3 class="font-semibold">SQLD Banking System</h3>
-      <p class="text-sm text-gray-500">Banking prototype focusing on financial workflows and scalability.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education" class="bg-gray-100 py-16 text-center">
-  <h2 class="text-3xl font-bold mb-6">Education</h2>
-  <p>BBIT - Meru University (Second Class Upper)</p>
-  <p>KCSE - Chianda High School</p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="text-center py-16">
-  <h2 class="text-3xl font-bold mb-4">Contact</h2>
-  <p>Email: maxwell6225@gmail.com</p>
-  <p>Phone: +254703536959</p>
-</section>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
